@@ -16,6 +16,7 @@ public class Numbers {
 
     public boolean isPrimeNumber(final int number, final ArrayList<Integer> primeNumbers) {
         final int squareRoot = (int) Math.floor(Math.sqrt(number));
+        System.out.println(squareRoot);
         for (int index = 0; index < primeNumbers.size() && primeNumbers.get(index) <= squareRoot; index++) {
             if (number % primeNumbers.get(index) == 0) return false;
         }
