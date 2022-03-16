@@ -14,15 +14,13 @@ public class Reader {
 
     public ArrayList<String> read() {
         ArrayList<String> array = new ArrayList<>();
-        try {
-            FileReader fileReader = new FileReader(this.filePath);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(this.filePath))) {
+
             String line = bufferedReader.readLine();
             while (line != null) {
                 array.add(line);
                 line = bufferedReader.readLine();
             }
-            bufferedReader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
