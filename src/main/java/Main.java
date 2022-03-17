@@ -13,7 +13,6 @@ public class Main {
         HashTable dicoTable = new HashTable(readerDico.read(), 3);
 
         displaySums(miniDicoTable, dicoTable);
-        System.out.println(miniDicoTable.computeNbOfElementWithSameKey());
 
         //displayPossibleSums(miniDicoTable, "src/main/possible-sums/possible-sums-for-mini-dico.txt");
         //displayPossibleSums(dicoTable, "src/main/possible-sums/possible-sums-for-dico.txt");
