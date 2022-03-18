@@ -1,10 +1,5 @@
 import util.Reader;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-
 public class Main {
     public static void main (String[] args) {
 
@@ -17,10 +12,7 @@ public class Main {
         displaySums(miniDicTable, dicTable);
         displayTableComposition(miniDicTable, dicTable);
 
-        //displayRenduTP2();
-
-        //displayPossibleSums(miniDicTable, "src/main/possible-sums/possible-sums-for-mini-dic.txt", readerMiniDic.read());
-        //displayPossibleSums(dicTable, "src/main/possible-sums/possible-sums-for-dic.txt", readerDic.read());
+        displayRenduTP2();
     }
 
     public static void displayRenduTP2() {
@@ -121,27 +113,6 @@ public class Main {
                         getTwoSumDecomposition(dicTable, "immunisé") + "\n" +
                         getTwoSumDecomposition(dicTable, "humidifierons")
         );
-    }
-
-    public static void displayPossibleSums(final HashTable table, final String filePath, final ArrayList<String> data) {
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filePath))) {
-
-                for (String word : data) {
-                    RepeatedSet wordSet = new RepeatedSet(word);
-                    TwoSum sum = new TwoSum(wordSet.getSet());
-                    RepeatedSet[] decomposition = sum.findSumDecomposition(table);
-
-                    if (decomposition != null) {
-                        bufferedWriter.write(word + " = " +
-                                decomposition[0].getWord() + ", " +
-                                decomposition[1].getWord()
-                        );
-                        bufferedWriter.newLine();
-                    }
-                }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public static void displayTableComposition(final HashTable miniDicTable, final HashTable dicTable) {
