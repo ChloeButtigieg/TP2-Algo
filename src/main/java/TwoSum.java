@@ -11,7 +11,7 @@ public class TwoSum {
         Arrays.sort(this.wordSum);
     }
 
-    public RepeatedSet[] findCompatibleWord(final HashTable table) {
+    public RepeatedSet[] findSumDecomposition(final HashTable table) {
         final RepeatedSet[] words = new RepeatedSet[2];
 
         for (int index = 0; index < table.getSize(); index++) {

@@ -129,7 +129,7 @@ public class Main {
                 for (String word : data) {
                     RepeatedSet wordSet = new RepeatedSet(word);
                     TwoSum sum = new TwoSum(wordSet.getSet());
-                    RepeatedSet[] decomposition = sum.findCompatibleWord(table);
+                    RepeatedSet[] decomposition = sum.findSumDecomposition(table);
 
                     if (decomposition != null) {
                         bufferedWriter.write(word + " = " +
@@ -155,7 +155,7 @@ public class Main {
     public static String getTwoSumDecomposition(final HashTable table, final String word) {
         RepeatedSet wordSet = new RepeatedSet(word);
         TwoSum sum = new TwoSum(wordSet.getSet());
-        RepeatedSet[] result = sum.findCompatibleWord(table);
+        RepeatedSet[] result = sum.findSumDecomposition(table);
 
         if (result != null)
             return "'" + wordSet.getWord() + "' est composé de '" + result[0].getWord() + "' et de '" + result[1].getWord() + "'.";
