@@ -18,7 +18,7 @@ public class RepeatedSet {
 
     @Override
     public String toString() {
-        return "{ " + word + '\'' + ", " + Arrays.toString(set) + '}';
+        return "{'" + word + '\'' + ", " + Arrays.toString(set) + '}';
     }
 
     @Override

@@ -15,8 +15,10 @@ public class HashTable {
 
         for (String word : words) {
             RepeatedSet wordSet = new RepeatedSet(word);
-            int keyIndex = getKeyIndex(wordSet.getSet());
-            this.table.get(keyIndex).add(wordSet);
+            if (!contains(wordSet)) {
+                int keyIndex = getKeyIndex(wordSet.getSet());
+                this.table.get(keyIndex).add(wordSet);
+            }
         }
     }
 
@@ -44,6 +46,11 @@ public class HashTable {
             if (Arrays.equals(setToFind, repeatedSet.getSet())) return repeatedSet;
         }
         return null;
+    }
+
+    public boolean contains(RepeatedSet repeatedSet) {
+        if (findElement(repeatedSet.getSet()) != null) return true;
+        return false;
     }
 
     private int getKeyIndex(final char[] wordSet) {
